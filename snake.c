@@ -41,7 +41,7 @@ void welcome(void)
 	printf("                   按空格键开始游戏");
 	printf("\n\n");
 	printf("      按y可以设置速度,现在的速度是%d,1000等于1秒.",sudu);
-	printf("\n\n\n\n\n                  https://github.com/izcp");
+	printf("\n\n\n\n\n                https://github.com/izcp");
 }
 
 //等待空格和y
@@ -67,19 +67,18 @@ void testSpace()
 struct snake * create(void)
 {
 	struct snake *first = NULL;
-	struct snake *cur, *prev;
+	struct snake *cur;
 	int i;
 
 	for (i = 0; i < 3; ++i) {
 		if (0 == i)
 			cur = first = node();
 		else {
-			prev->next = node();
+			cur->next = node();
 			cur = cur->next;
 		}
 		cur->x = 8;
 		cur->y = 10 * 2 + 2 * i;
-		prev = cur;
 	}
 	cur->next = NULL;
 	return first;
@@ -237,7 +236,7 @@ bool snakeDie(struct snake *list)
 	//撞墙
 	if (list->x == 4 || list->x == 21 || list->y == 6 || list->y == 50) {
 		system("cls");
-		puts("snake die!");
+		puts("                 snake die!");
 		return true;
 	}
 	//咬到自己
@@ -246,15 +245,13 @@ bool snakeDie(struct snake *list)
 		for (p = list->next; p != NULL; p = p->next) {
 			if (list->x == p->x && list->y == p->y) {
 				system("cls");
-				puts("snake die!");
+				puts("                 snake die!");
 				return true;
 			}
 		}
 	}
 	return false;
 }
-
-
 
 int main()
 {
@@ -271,7 +268,6 @@ int main()
 		//初始化蛇和方向
 		first = create();
 		direction = west;
-
 		//画背景
 		drawBackground();
 		//随机食物
@@ -293,7 +289,7 @@ int main()
 			Sleep(sudu);
 		}
 
-		printf("分数:%d\n\n           按空格键重新开始游戏\n"
+		printf("                   分数:%d\n\n           按空格键重新开始游戏\n"
 			"按y可以设置速度,现在的速度是%d,1000等于1秒.",score,sudu);
 		score = 0;
 	}
