@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <Windows.h>
-#include <conio.h> 
+#include <conio.h>
 #include <stdbool.h>
 #include <time.h>
 
@@ -41,7 +41,7 @@ void welcome(void)
 	printf("                   按空格键开始游戏");
 	printf("\n\n");
 	printf("      按y可以设置速度,现在的速度是%d,1000等于1秒.",sudu);
-	printf("\n\n\n\n\n                https://github.com/izcp");
+	printf("\n\n\n\n          https://github.com/mainxml/snake");
 }
 
 //等待空格和y
@@ -164,7 +164,7 @@ struct snake *snakeMove(struct snake *list)
 	COORD pos = { qY, qX };
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleCursorPosition(handle, pos);
-	printf(" ");
+	printf("  ");
 
 	return list;
 }
